@@ -1,5 +1,5 @@
 import { User } from './user.schema';
-import { Prop, Schema } from '@nestjs/mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
 export type VideoDocument = Video & Document;
 @Schema()
@@ -15,3 +15,5 @@ export class Video {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
   createBy: User;
 }
+
+export const VideoSchema = SchemaFactory.createForClass(Video);
